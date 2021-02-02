@@ -1,37 +1,143 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="zh-CN">
 
-You can use the [editor on GitHub](https://github.com/zjzxz/zjzxz.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是鸡蛋仔啊</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+        .wrap {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background-image: url(https://bing.mcloc.cn/api);
+            background-size: cover;
+            background-position: center;
+        }
 
-### Markdown
+        .wrap-son {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 1;
+            background: rgba(59, 59, 59, 0.3);
+        }
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        .jumbotron {
+            background: rgba(255, 255, 255, 0);
+            color: #f5f5f5;
+        }
 
-```markdown
-Syntax highlighted code block
+        .love {
+            color: #ffffff;
+            margin: 0 20px;
+            line-height: 1.3;
+            font-weight: 300;
+        }
 
-# Header 1
-## Header 2
-### Header 3
+        .hans-container {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            height: 120px;
+            z-index: 1;
+        }
 
-- Bulleted
-- List
+        .timer b {
+            font-size: 100px;
+        }
 
-1. Numbered
-2. List
+        #s {
+            font-size: 100px;
+        }
 
-**Bold** and _Italic_ and `Code` text
+        #updatalove,
+        #to_comments {
+            margin: 0 10px;
+        }
 
-[Link](url) and ![Image](src)
-```
+        .copy {
+            position: absolute;
+            bottom: 0;
+            color: #ffffff;
+            font-size: 12px;
+        }
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+        /* 评论 */
+        .comment {
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
 
-### Jekyll Themes
+<body>
+    <div class="wrap">
+        <div class="wrap-son">
+            <div class="container-fluid">
+                <div class="box">
+                    <div class="jumbotron text-center">
+                        <h1>我们</h1>
+                        <h3 class="timer">
+                            <div class="row">
+                                <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分
+                            </div>
+                            <div class="row">
+                                <b id="s"></b> 秒
+                            </div>
+                        </h3>
+                        <p>
+                            <a id="to_comments" class="btn btn-primary btn-lg" role="button">只怕使你先找到我 但直行直过</a>
+                        </p>
+                    </div>
+                </div>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zjzxz/zjzxz.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+                <div class="row">
+                    <h4 class="love text-center"><span class="love-son"></span></h4>
+                </div>
 
-### Support or Contact
+                <div class="row">
+                    <p class="copy text-center col-xs-12 col-sm-12">XXXXXXXXXXXXXX</p>
+                </div>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+                <div id="hans-bolang"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 计时器 -->
+    <script>
+        function timer() {
+            var start = new Date(2017, 10, 07, 21, 0, 00); // 修改时间的地方
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+        }
+        timer();
+        setInterval(timer, 1000);
+    </script>
+
+
+</body>
+
+</html>
