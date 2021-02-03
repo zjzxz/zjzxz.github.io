@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>步数修改v0.1 小刀娱乐网www.x6d.com</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrapValidator.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrapValidator.js"></script>
+</head>
+<style>
+    .function-title {
+        font-size: 30px;
+    }
+    .function-author {
+        font-style: italic;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .function-address a:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .ps-content span {
+        font-style: italic;
+        color: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <section>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="page-header">
+                        <span class="function-title">步数修改</span><span class="function-author">v0.1 by niushuai233</span>
+                        <p class="function-address"> <a href="https://www.x6k.com/">https://github.com/niushuai233</a></p>
+                    </div>
+
+                    <div class="ps-content">
+                        注意事项：<br>
+                        <ul>
+                            <li>1、从<span>应用商店</span> 或者<span>浏览器</span> 下载<span>小米运动App</span>, 打开软件并输入手机号登录</li>
+                            <li>2、请自行注册<span>小米运动app</span> 账号, 不要使用<span>小米账号</span> 登陆
+                            <li>3、不要使用<span>第三方账号</span>登录</li>
+                            <li>4、登陆之后选择 <span>第三方同步</span></li>
+                            <li>5、绑定需要同步的第三方应用</li>
+                            <li>6、小米运动app的修改数据同步较慢, 请直接打开第三方app查看同步结果</li>
+                        </ul>
+                    </div>
+                    <hr/>
+                    <form id="defaultForm" method="post" class="form-horizontal" >
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">用户名</label>
+                            <div class="col-lg-5">
+                                <input type="text" class="form-control" id="user" name="user" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">密码</label>
+                            <div class="col-lg-5">
+                                <input type="password" class="form-control" id="password" name="password" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">步数</label>
+                            <div class="col-lg-5">
+                                <input type="number" class="form-control" id="step" name="step" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3" style="">
+                                <button type="button" class="btn btn-primary" id="submit">提交修改</button>
+                                <button type="button" class="btn btn-info" id="resetBtn">重置</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="result-div" class="result-div">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    Date.prototype.Format = function (fmt) {
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+
+    var lastSubmit = 0;
+
+    function appendLine(msg) {
+        var time = new Date().Format("yyyy-MM-dd hh:mm:ss");
+        $("#result-div").append(time + ": " + msg);
+        $("#result-div").append('<br/>');
+    }
+
+    function checkSubmitStatus() {
+        console.log('date', lastSubmit, d, d - lastSubmit, lastSubmit - new Date().getTime() > 5000);
+        if (lastSubmit == 0) {
+            return true;
+        }
+        var d = new Date().getTime();
+        if (d - lastSubmit > 5000) {
+            return true;
+        }
+        return false;
+    }
+
+    $("#submit").click(function() {
+        if (!checkSubmitStatus()) {
+            alert('不要提交的太频繁哦');
+            return;
+        }
+        $("#submit").attr("readonly", "readonly");
+        var _user = $("#user").val();
+        var _password = $("#password").val();
+        var _step = $("#step").val();
+        $.ajax({
+            url: "https://service-b7ps1opy-1253595977.gz.apigw.tencentcs.com/release/mi_sport_change?user=" + _user + "&password=" + _password + "&step=" + _step,
+            method: "GET",
+            cache: false,
+            beforeSend: function () {
+                appendLine('开始准备修改...');
+            },
+            success: function(res){
+                console.log(res);
+                appendLine("请求成功, 请求结果:" + res);
+            },
+            error: function (res) {
+                appendLine('啊哦, 请求失败了, statusCode=' + res.status + ', text=' + res.statusText);
+            },
+            complete: function (res) {
+                console.log(res);
+                appendLine('请求完成');
+                appendLine('======================================')
+                $("#submit").removeAttr('readonly')
+                resetValue(_user, _password, _step);
+                lastSubmit = new Date().getTime();
+            }
+        });
+    });
+
+    function resetValue(user, password, step) {
+        $("#user").val(user);
+        $("#password").val(password);
+        $("#step").val(step);
+    }
+
+    $(document).ready(function() {
+
+        $('#defaultForm').bootstrapValidator({
+    //        live: 'disabled',
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                user: {
+                    message: '用户名无效',
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        },
+                        stringLength: {
+                            min: 3,
+                            max: 32,
+                            message: '用户名必须大于3，小于32个字'
+                        },
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能位空'
+                        },
+                    }
+                },
+                step: {
+                    validators: {
+                        notEmpty: {
+                            message: '步数不能为空'
+                        },
+                    }
+                }
+            }
+        });
+
+        // Validate the form manually
+        $('#validateBtn').click(function() {
+            $('#defaultForm').bootstrapValidator('validate');
+        });
+
+        $('#resetBtn').click(function() {
+            resetValue('','','');
+        });
+    });
+</script>
+</body>
+</html>
