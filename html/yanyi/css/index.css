@@ -1,0 +1,129 @@
+﻿
+/* 导航 */
+.ls{
+	height:2px;
+	background:url(https://www.weipxiu.com/wp-content/themes/Art_Blog/images/header_bj.gif); 
+	animation: hue 20s infinite linear;
+	overflow: hidden; 
+	width:100%;
+}
+
+.pad{
+	padding-top: 50px;
+}
+
+.navbar-default{
+	box-shadow: 0px 1px 8px 0 #666;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+	color: #31708f;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a{
+	color: #777;
+	font-weight: bold;
+	font-family: -webkit-body;
+    font-size: 14px;
+}
+
+.nav>li{
+	margin-left: 10px;
+}
+
+
+/*头像个人*/
+
+.baron{
+	color: #FFF;
+    padding: 30px 0;
+	text-align: center;
+    background: url(../img/10.jpg);
+	background-size: cover;
+	box-shadow: 1px 1px 5px 1px #666;
+}
+
+.baron h1{
+    font-size: 20px;
+    color: #FFF;
+    font-family: 微软雅黑;
+	cursor: pointer;
+}
+
+.baron .ioc{
+    margin-left: 5px;
+    margin-top: -5px;
+	cursor: pointer;
+}
+
+.nat{
+	width: 150px;
+	height: auto;
+	border-radius: 50%;
+	margin: 0 auto;
+	border:2px solid;
+    cursor: pointer;
+}
+
+
+.nat{
+    border-radius: 50%;
+    border: 3px solid #FFF;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
+    transition: all .5s;
+}
+
+.nat:hover{
+    border: 3px solid #FF7F00;
+    transition: all .5s;
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(350deg);
+}
+
+.btn-danger:hover{
+	color: #fff;
+	background-color: #d9534f;
+	border-color: #d43f3a;
+}
+
+.nav-tabs>li>a:hover{
+	border-color:none;
+}
+
+.nav-tabs>li>a:hover{
+	border-radius: none;
+}
+
+/* 介绍 */
+.table>tbody>tr>td{
+	padding-top:5px;
+	padding: 15px;
+	line-height: 1;
+	vertical-align: top;
+	border-top: 0px solid #ddd;
+}
+
+@media screen and (min-width: 992px) {
+    .table>tbody>tr>td {
+        padding-top:5px;
+        padding: 15px;
+        line-height: 1;
+        vertical-align: top;
+        border-top: 0px solid #ddd;
+        padding-left: 55px;
+    }
+}
+
+
+.con{
+	text-align: center;
+}
+
+.con a{
+	color: #000000;
+	text-decoration: none;
+	
+}

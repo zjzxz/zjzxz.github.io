@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/index.css">
+		<title>第一学期の总结</title>
+	</head>
+	<body>
+		<div class="ls"></div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- 按钮  data-toggle="collapse"-->
+					<button class="navbar-toggle"  data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- LOGO -->
+					<a href="#" class="navbar-brand">第一学期の总结</a>
+				</div>
+				<!-- 导航 -->
+				<div class="collapse navbar-collapse" aria-expanded="false">
+					<ul class="nav navbar-nav navbar-right" >
+						<li class="active"><a href="https://www.zhongqijun.cn/html">主页</a></li>
+						<li>
+							<a href="#" type="button" data-toggle="dropdown">github<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">github——1</a></li>
+								<li><a href="#">github——2</a></li>
+							</ul>
+						</li>
+						<li><a href="#">XXX</a></li>
+						<li><a href="#">XXX</a></li>
+						<li><a href="#">XXX</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 内容 -->
+		<div class="container pad">
+			<div class="row">
+				<div class="col-md-12 baron">
+					<img src="img/JD_头像.jpg" class="img-responsive nat">
+					<h1>JD.zhu<img src="img/vip9.png" class="ioc"></h1>
+					<p>Welcome you to visit my web!</p>
+					<button class="btn btn-danger">&nbsp;你好啊&nbsp;</button>
+				</div>
+				<div class="col-md-12">
+					<div class="page-header">
+						<ul class="nav nav-tabs">
+							<li >
+								<a href="index.html">概述</a>
+							</li>
+							<li class="active">
+								<a href="Algorithm.html">Algorithm</a>
+							</li>
+							<li>
+								<a href="OprnCV_CSDN.html">CSDN上CV入门</a>
+							</li>
+							<li>
+								<a href="OprnCV_3hours.html">CV3小时教程</a>
+							</li>
+							<li>
+								<a href="OprnCV_other.html">OprnCV_other</a>
+							</li>
+							<li>
+								<a href="YOLO.html">YOLO</a>
+							</li>
+							<li>
+								<a href="Turtle.html">Turtle</a>
+							</li>
+							<li>
+								<a href="Matlab.html">Matlab</a>
+							</li>
+						</ul>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>【迪杰斯特拉算法（Dijkstra算法）】：<br><br>典型最短路径算法，用于计算一个节点到其他节点的最短路径。 <br><br>限制条件：不存在负权值的边<br><br>思想：迪杰斯特拉最最朴素的思想就是按长度递增的次序产生最短路径。即每次对所有可见点的路径长度进行排序后，选择一条最短的路径，这条路径就是对应顶点到源点的最短路径。</td>
+								</tr>
+								<tr>
+									<td>【弗洛伊德算法（Floyd算法）】：<br><br>Floyd算法又称为插点法，是一种利用动态规划的思想寻找给定的加权图中多源点之间最短路径的算法，与Dijkstra算法类似。是解决任意两点间的最短路径的一种算法，可以正确处理有向图或负权的最短路径问题，同时也被用于计算有向图的传递闭包。Floyd-Warshall算法的时间复杂度为O(N3)，空间复杂度为O(N2)。<br><br>Floyd算法是一个经典的动态规划算法。从任意节点i到任意节点j的最短路径不外乎2种可能，1是直接从i到j，2是从i经过若干个节点k到j。我们检查Dis(i,k) + Dis(k,j) < Dis(i,j)是否成立，如果成立，证明从i到k再到j的路径比i直接到j的路径短，我们便设置Dis(i,j) = Dis(i,k) + Dis(k,j)，这样一来，当我们遍历完所有节点k，Dis(i,j)中记录的便是i到j的最短路径的距离。<br><br>算法描述：<br>a.从任意一条单边路径开始。所有两点之间的距离是边的权，如果两点之间没有边相连，则权为无穷大。<br>b.对于每一对顶点 u 和 v，看看是否存在一个顶点 w 使得从 u 到 w 再到 v 比己知的路径更短。如果是更新它。</td>
+								</tr>
+								<tr>
+									<td>优缺点分析：Floyd算法适用于APSP(All Pairs Shortest Paths，多源最短路径)，是一种动态规划算法，稠密图效果最佳，边权可正可负。此算法简单有效，由于三重循环结构紧凑，对于稠密图，效率要高于执行|V|次Dijkstra算法，也要高于执行|V|次SPFA算法。<br>优点：容易理解，可以算出任意两个节点之间的最短距离，代码编写简单。<br>缺点：时间复杂度比较高，不适合计算大量数据。</td>
+								</tr>
+								<tr>
+									<td>【A*算法】：<br><br>一种静态路网中求解最短路径最有效的直接搜索方法，也是解决许多搜索问题的有效算法。算法中的距离估算值与实际值越接近，最终搜索速度越快。<br><br>公式表示为： f(n)=g(n)+h(n)<br><br> f(n)是从初始状态经由状态n到目标状态的代价估计<br><br>g(n)是在状态空间中从初始状态到状态n的实际代价<br><br>h(n)是从状态n到目标状态的最佳路径的估计代价。<br><br><br><br><br></td>
+								</tr>
+								<tr>
+									<td>【人工势场法算法（Artifical Potential Field）】：<br><br>将机器人在周围环境中的运动，设计成一种抽象的人造引力场中的运动，目标点对移动机器人产生“引力”，障碍物对移动机器人产生“斥力”，最后通过求合力来控制移动机器人的运动。应用势场法规划出来的路径一般是比较平滑并且安全，但是这种方法存在局部最优点问题。</td>
+								</tr>
+								<tr>
+									<td>【人工势场法算法（改进）】：解决结果不闭合</td>
+								</tr>
+								<tr>
+									<td>【粒子群算法（PSO）】：<br><br>粒子群优化算法(PSO：Particle swarm optimization) 是一种进化计算技术（evolutionary computation）。源于对鸟群捕食的行为研究。粒子群优化算法的基本思想：是通过群<br><br>体中个体之间的协作和信息共享来寻找最优解。<br><br>PSO的优势：在于简单容易实现并且没有许多参数的调节。目前已被广泛应用于函数优化、神经网络训练、模糊系统控制以及其他遗传算法的应用领域。<br><br>基本思想:粒子群算法通过设计一种无质量的粒子来模拟鸟群中的鸟，粒子仅具有两个属性：速度和位置，速度代表移动的快慢，位置代表移动的方向。每个粒子在搜索空间中<br><br>单独的搜寻最优解，并将其记为当前个体极值，并将个体极值与整个粒子群里的其他粒子共享，找到最优的那个个体极值作为整个粒子群的当前全局最优解，粒子群中的所有<br><br>粒子根据自己找到的当前个体极值和整个粒子群共享的当前全局最优解来调整自己的速度和位置。</td>
+								</tr>
+								<td>【蚁群算法】：<br><br>一种群智能算法，它是由一群无智能或有轻微智能的个体（Agent）通过相互协作而表现出智能行为，从而为求解复杂问题提供了一个新的可能性。<br><br>将蚁群算法应用于解决优化问题的基本思路为：用蚂蚁的行走路径表示待优化问题的可行解，整个蚂蚁群体的所有路径构成待优化问题的解空间。路径较短的蚂蚁释放的信<br><br>息素量较多，随着时间的推进，较短的路径上累积的信息素浓度逐渐增高，选择该路径的蚂蚁个数也愈来愈多。最终，整个蚂蚁会在正反馈的作用下集中到最佳的路径上，此<br><br>时:对应的便是待优化问题的最优解。</td>
+								</tr>
+								<td>【遗传算法（Genetic Algorithm，GA）】：<br><br>模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。该算法通过数学的方式,利用计算机仿真运算,<br><br>将问题的求解过程转换成类似生物进化中的染色体基因的交叉、变异等过程。</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 版权 -->
+		<footr>
+			<div class="container con">
+				<div class="col-md-12">
+					<p>2021-2-16&nbsp;<span class="glyphicon glyphicon-user"></span><a href="http://www.shanezy.com">JD.zhu</a></p>
+				</div>
+			</div>
+		</footr>
+	<script src="http://mat1.gtimg.com/libs/jquery/1.12.0/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 雪花特效 -->
+	<script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script>
+	<style type="text/css">
+	.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}
+	</style>
+	<div class="snow-container"></div>
+	</body>
+</html>
