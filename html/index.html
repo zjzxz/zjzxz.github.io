@@ -2,11 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- 移动端的布局不同于pc端,需要设置 -->
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
   <title>首页</title>
+  <!-- 首页两张图片的切换 -->
   <link rel="stylesheet" href="../res/layui/css/layui.css">
+  <!-- 首页、个人介绍、direction、学校……的正常显示 -->
   <link rel="stylesheet" href="../res/static/css/index.css">
+  <!-- 时间，其中【text/javascript】为默认值      css显示橙色数字黑色背景 -->
+  <script type="text/javascript" src="../res/static/js/time_jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="../res/static/js/time_Test.js"></script>
+  <link rel="stylesheet" type="text/css" href="../res/static/css/Time_Test.css">
+  
 </head>
+
+
+
 <body>
   <!-- nav部分 -->
   <div class="nav index">
@@ -39,18 +50,22 @@
         <div>
           <img src="../res/static/img/banner1.jpg">
           <div class="panel">
-            <p class="title">JD.</p>
+            <p class="title">JD.zhu</p>
             <p>研究生的日子</p>
           </div>
         </div>
         <div>
           <img src="../res/static/img/banner2.jpg">
+		  <div class="panel">
+            <p class="title">JD.zhu</p>
+            <p>研究生的日子</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <!-- footer部分 -->
-  <div class="footer">
+<div class="footer">
     <div class="layui-container">
       <p class="footer-web">
         <a href="http://www.ccyl.org.cn/">共青团中央</a>
@@ -76,7 +91,11 @@
         </div>
       </div>
     </div>
+	<!-- 时间部分 -->
+	<div class="time"></div>
   </div>
+
+<!--  【layui】是开源的模块化前端 UI 框架 -->
 <script src="../res/layui/layui.js"></script>
 <!--[if lt IE 9]>
   <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
