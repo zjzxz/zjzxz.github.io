@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/index.css">
+		<title>第一学期の总结</title>
+	</head>
+	<body>
+		<div class="ls"></div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- 按钮  data-toggle="collapse"-->
+					<button class="navbar-toggle"  data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- LOGO -->
+					<a href="#" class="navbar-brand">第一学期の总结</a>
+				</div>
+				<!-- 导航 -->
+				<div class="collapse navbar-collapse" aria-expanded="false">
+					<ul class="nav navbar-nav navbar-right" >
+						<li class="active"><a href="https://www.zhongqijun.cn/html">主页</a></li>
+						<li>
+							<a href="#" type="button" data-toggle="dropdown">github<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">github——1</a></li>
+								<li><a href="#">github——2</a></li>
+							</ul>
+						</li>
+						<li><a href="#">XXX</a></li>
+						<li><a href="#">XXX</a></li>
+						<li><a href="#">XXX</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 内容 -->
+		<div class="container pad">
+			<div class="row">
+				<div class="col-md-12 baron">
+					<img src="img/JD_头像.jpg" class="img-responsive nat">
+					<h1>JD.zhu<img src="img/vip9.png" class="ioc"></h1>
+					<p>Welcome you to visit my web!</p>
+					<button class="btn btn-danger">&nbsp;你好啊&nbsp;</button>
+				</div>
+				<div class="col-md-12">
+					<div class="page-header">
+						<ul class="nav nav-tabs">
+							<li >
+								<a href="index.html">概述</a>
+							</li>
+							<li >
+								<a href="Algorithm.html">Algorithm</a>
+							</li>
+							<li>
+								<a href="OprnCV_CSDN.html">CSDN上CV入门</a>
+							</li>
+							<li>
+								<a href="OprnCV_3hours.html">CV3小时教程</a>
+							</li>
+							<li>
+								<a href="OprnCV_other.html">OprnCV_other</a>
+							</li>
+							<li class="active">
+								<a href="YOLO.html">YOLO</a>
+							</li>
+							<li>
+								<a href="Turtle.html">Turtle</a>
+							</li>
+							<li>
+								<a href="Matlab.html">Matlab</a>
+							</li>
+						</ul>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>【计算机视觉：YOLO算法简介】</td>
+								<tr>
+									<td>“You Only Look Once”或“YOLO”是一个对象检测算法的名字，这是Redmon等人在2016年的一篇研究论文中命名的。YOLO实现了自动驾驶汽车等前沿技术中使用的实时对象检测。</td>
+								<tr>
+									<td><img src="img/yolo_1.jpeg">
+								<tr>
+									<td>【实时的重要性】
+								<tr>
+									<td>人们看到图像以后，可以立即识别其中的对象、它们的位置和相对位置。这使得我们能够在几乎无意识的情况下完成复杂的任务，比如开车。因此，对汽车进行自动驾驶训练需要类似水平的反应能力和准确性。在其最基本的形式中，这样的系统必须能够分析实时视频中的道路，并能够在继续确定路径之前检测各种类型的对象及其在现实世界中的位置，所有这些都必须是实时的。
+									<tr>
+									<td>【在YOLO之前】
+									<tr>
+									<td>先前的检测系统使用分类器对测试图像的不同切片进行评估。例如，Deformable Parts Model (DPM)涉及到在图像中均匀间隔的位置上滑动窗口并在这些部件上运行分类器。R-CNN(Region-based Convolutional Neural Networks)是另一种模型，它运行一种分割算法将一幅图像分割成一个个小块，然后在这些小块上运行一个分类器。但是，速度慢、优化困难一直困扰着这种YOLO之前的系统。
+									<tr>
+									<td>【YOLO算法】
+									<tr>
+									<td>YOLO将对象检测重新定义为一个回归问题。它将单个卷积神经网络(CNN)应用于整个图像，将图像分成网格，并预测每个网格的类概率和边界框。例如，以一个100x100的图像为例。我们把它分成网格，比如7x7。
+									<tr>
+									<td><img src="img/yolo_2.jpeg">
+									<tr>
+									<td>然后，对于每个网格，网络都会预测一个边界框和与每个类别（汽车，行人，交通信号灯等）相对应的概率
+									<tr>
+									<td><img src="img/yolo_3.jpeg">
+									<tr>
+									<td>每个边界框可以使用四个描述符进行描述：
+<br><br><strong>1.边界框的中心</strong>
+<br><br><strong>2.高度</strong>
+<br><br><strong>3.宽度</strong>
+<br><br><strong>4.值映射到对象所属的类</strong>
+									<tr>
+									<td>此外，该算法还可以预测边界框中存在对象的概率。如果一个对象的中心落在一个网格单元中，则该网格单元负责检测该对象。每个网格中将有多个边界框。在训练时，我们希望每个对象只有一个边界框。因此，我们根据哪个Box与ground truth box的重叠度最高，从而分配一个Box来负责预测对象。
+									<tr>
+									<td>最后，我们对每个类的对象应用一个称为“非最大抑制（Non Max Suppression）”的方法来过滤出“置信度”小于阈值的边界框。这为我们提供了图像预测。
+									<tr>
+									<td><img src="img/yolo_4.jpeg">
+									<tr>
+									<td>【重要性】
+									<tr>
+									<td>YOLO非常快。由于检测问题是一个回归问题，所以不需要复杂的管道。它比“R-CNN”快1000倍，比“Fast R-CNN”快100倍。它能够处理实时视频流，延迟小于25毫秒。它的精度是以前实时系统的两倍多。同样重要的是，YOLO遵循的是“端到端深度学习”的实践。
+									<tr>
+									<td>
+									<tr>
+									<td>
+									<tr>
+									<td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 版权 -->
+		<footr>
+			<div class="container con">
+				<div class="col-md-12">
+					<p>2021-2-16&nbsp;<span class="glyphicon glyphicon-user"></span><a href="http://www.shanezy.com">JD.zhu</a></p>
+				</div>
+			</div>
+		</footr>
+	<script src="http://mat1.gtimg.com/libs/jquery/1.12.0/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 雪花特效 -->
+	<script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script>
+	<style type="text/css">
+	.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}
+	</style>
+	<div class="snow-container"></div>
+	</body>
+</html>
